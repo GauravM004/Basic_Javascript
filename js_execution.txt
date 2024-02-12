@@ -1,0 +1,75 @@
+Javascript Execution Context 
+ 
+Phasee 1. Global Execution Context where we use this keyword 
+JS is a single thread 
+
+2. Function Execution Context 
+
+3. (Optional) Eval Execution Context
+
+We have two phases of code Execution
+
+Phase 2 
+1. Memory Creation Phase //variables memory allocation
+2. Execution Phase // variiables executed
+
+let val1 = 10
+let val2 = 5
+
+Function addNum (num1, num2) {
+    let total = num1 + num2
+    return total
+}
+
+let result1 = addNum (val1, val2)
+let result2 = addNum (10, 2)
+
+First it goes in Global Execution Phase with this keyword
+Later on mem phase 
+val1 -> undefined
+val2 -> undefined
+
+addNum -> definition of whole function
+result1 -> undefined
+result2 -> undefined
+
+the first cycle is completed
+
+Next is the execution phase 
+val1 -> 10
+val2 -> 5
+addNum -> different execution context which creates a a (new variable environment and an exxecution thread)
+And a new memory phase and an execution phase is made
+
+val1 -> undefined
+val2 -> undefined
+total -> undefined 
+then it goes to execution phase 
+num1 -> 10
+num2 -> 5
+total -> 15
+and the return statement returns it the total in Global Execution Phase
+After the task performed the new space of the function gets deleted
+Then 
+result1 -> 15
+
+result2 for result2 again a new variable environment and a thread is created 
+Again the reptition of memory phase and execution phase
+val1 -> undefined
+val2 -> undefined
+total -> undefined
+then it  goes to execuution phase
+num1 -> 10
+num2 -> 2
+total -> 12
+and the return statement returns it total in Global Execution Phase
+
+// Call Stack
+bottom of stack is global executiom
+The method goes in stack
+
+It follows LIFO
+That means if we perform three functios in our code and call each one by one the third function will go first then the remaining in LIFO manner
+
+
+
